@@ -1,0 +1,1 @@
+table.insert(scripts,"/warehouse.lua")
