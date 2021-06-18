@@ -17,7 +17,7 @@ meta =
     type = "mod",
 
     -- Description of your mod that will be displayed to players
-    description = "This mod adds a generic wharehouse that accepts and provides all types of goods in the game to more easily support complicated supply chains. The station should show up as a valid target to deliver and fetch goods from in other factories. Supports all goods from the goods.lua table.",
+    description = "This mod adds a generic wharehouse that accepts and provides all types of goods in the game to more easily support complicated supply chains. The station should show up as a valid target to deliver and fetch goods from in other factories. Supports all goods from the goods.lua table. \n\n https://github.com/Kickercost/Avorion-Warehouse ",
 
     -- Insert all authors into this list
     authors = {"Social", "drenith"},
@@ -44,7 +44,7 @@ meta =
     --      {id = "OptionalMod", min = "0.2", optional = true}, -- we support OptionalMod optionally, starting at version 0.2
     -- },
     dependencies = {
-        {id = "Avorion", max = "1.3.8"}
+        {id = "Avorion", max = "1.9.9"}
     },
 
     -- Set to true if the mod only has to run on the server. Clients will get notified that the mod is running on the server, but they won't download it to themselves

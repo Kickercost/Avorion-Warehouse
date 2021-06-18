@@ -33,8 +33,11 @@ function Warehouse.initialize()
     if station.title == "" then
         station.title = "Warehouse"%_t
     end
-	if EntityIcon().icon == "" then
-		EntityIcon().icon = "data/textures/icons/pixel/crate.png"
+	if onClient() then
+		if EntityIcon().icon == "" then
+			EntityIcon().icon = "data/textures/icons/pixel/crate.png"
+		end
 	end
+
 end
 
