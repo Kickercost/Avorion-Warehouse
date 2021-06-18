@@ -13,31 +13,39 @@ local TradingAPI = include("tradingmanager")
 -- namespace Warehouse
 Warehouse = {}
 Warehouse = TradingAPI:CreateNamespace()
+Warehouse.trader.buyFromOthers = false
+Warehouse.trader.sellToOthers = false
+Warehouse.trader.useUpGoodsEnabled = false
 
-function Warehouse.useUpBoughtGoods()
-
+Warehouse.trader.boughtGoods = {}
+for _, g in pairs(goods) do
+	table.insert(Warehouse.trader.boughtGoods, tableToGood(g))
 end
 
-function Warehouse.getSoldGoodByName(name)
-	return goods[name]
+Warehouse.trader.soldGoods = {}
+for _, g in pairs(goods) do
+	table.insert(Warehouse.trader.soldGoods, tableToGood(g))
 end
 
-function Warehouse.getBoughtGoodByName(name)
-	return goods[name]
-end
+local initialize =  Warehouse.initialize
+local buyGoodsFunc = Warehouse.buyGoods
 
 function Warehouse.initialize()
 	local station = Entity()
-	Warehouse.boughtGoods = goods	
-	Warehouse.soldGoods = goods		
-    if station.title == "" then
-        station.title = "Warehouse"%_t
-    end
+	if onServer() then
+		Sector():addScriptOnce("sector/traders.lua")
+		if station.title == "" then
+			station.title = "Warehouse"%_t
+		end
+	end
 	if onClient() then
 		if EntityIcon().icon == "" then
 			EntityIcon().icon = "data/textures/icons/pixel/crate.png"
 		end
 	end
+
+	print("calling warehouse init")
+	if(initialize)then initialize() end
 
 end
 
